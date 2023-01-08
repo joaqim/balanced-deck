@@ -1,5 +1,6 @@
-#include "BalancedDeck.h"
+#include "BalancedDeck/BalancedDeck.h"
 
+#include <cfloat> // FLT_MIN
 #include <cstdint>
 
 uint8_t BalancedDeck::rollDice(std::mt19937 &generator) {
