@@ -11,15 +11,15 @@ def get_version():
 
 
 class BalancedDeckConan(ConanFile):
-    name = "balanceddeck"
+    name = "balanced-deck"
     version = get_version()
-    description = """A basic C++ library."""
+    description = """A basic C++ implementation of two 2-sided dice as a 36 length deck of dice pairs."""
     settings = "os", "compiler", "build_type", "arch"
     license = "AGPL-3.0-or-later"
     generators = "cmake_find_package", "cmake_paths"
     exports = "VERSION"
     exports_sources = "lib/*", "test/*", "cmake/*", "VERSION", "LICENSE", "CMakeLists.txt"
-    author = "joaqim planstedt"
+    author = "Joaqim Planstedt"
     options = {
         "shared": [True, False],
         "fPIC": [True, False]

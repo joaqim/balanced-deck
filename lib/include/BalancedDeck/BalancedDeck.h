@@ -57,12 +57,13 @@ public:
     */
    uint8_t rollDice(std::mt19937 &generator);
 
+public:
+   uint8_t cardsInDeck = 0U;    //!< The number of cards remaining in the deck, initializes in rollDie().
 private:
    uint8_t _pairCounts[11];      //!< The number of pairs of each dice value in the deck.
    uint8_t _rollCounts[11];      //!< The number of times each dice value has been rolled in the past 5 rolls.
    float _diceProbabilities[11]; //!< The current probabilities of rolling each dice value.
    uint8_t _recentRolls[5];      //!< The past 5 rolls, in chronological order.
-   uint8_t _cardsInDeck = 0U;    //!< The number of cards remaining in the deck, initializes in rollDie().
 
    /**
     * @brief Initializes the deck by resetting the number of cards in the deck

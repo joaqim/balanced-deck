@@ -5,7 +5,7 @@ project(BalancedDeckTest)
 find_package(Catch2 MODULE REQUIRED)
 
 add_executable(BalancedDeckTest
-    mylibrarytest.cpp
+    BalancedDeckTest.cpp
 )
 
 target_link_libraries(BalancedDeckTest

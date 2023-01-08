@@ -12,11 +12,11 @@ SCENARIO("BalancedDeck testing", "[test]")
 
         std::mt19937 generator{static_cast<long unsigned int>(std::chrono::system_clock::now().time_since_epoch().count())};
 
-        auto example = std::make_shared<BalancedDeck>();
+        auto deck = std::make_shared<BalancedDeck>();
 
         WHEN("calling rollDice()")
         {
-            auto result = example->rollDice(generator);
+            auto result = deck->rollDice(generator);
             THEN("result should be non-zero")
             {
                 REQUIRE(result > 0);
@@ -25,6 +25,9 @@ SCENARIO("BalancedDeck testing", "[test]")
             {
                 REQUIRE(result >= 2);
                 REQUIRE(result <= 12);
+            }
+            THEN("cards in deck should have been reduced by one") {
+                REQUIRE(deck->cardsInDeck == deck->NUM_CARDS_IN_DECK - 1U);
             }
         }
     }

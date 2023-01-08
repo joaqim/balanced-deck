@@ -4,7 +4,7 @@
 #include <cstdint>
 
 uint8_t BalancedDeck::rollDice(std::mt19937 &generator) {
-    if (_cardsInDeck == 0U) {
+    if (cardsInDeck == 0U) {
         initializeDeck();
     }
 
@@ -18,7 +18,7 @@ uint8_t BalancedDeck::rollDice(std::mt19937 &generator) {
             if (_pairCounts[diceIndex] > 0U) {
                 _pairCounts[diceIndex] -= 1U;
                 _rollCounts[diceIndex] += 1U;
-                _cardsInDeck -= 1U;
+                cardsInDeck -= 1U;
 
                 const uint8_t forgetFifthDiceRollByValue = _recentRolls[0];
                 if (forgetFifthDiceRollByValue > 0U) {
@@ -43,7 +43,7 @@ uint8_t BalancedDeck::rollDice(std::mt19937 &generator) {
 }
 
 void BalancedDeck::initializeDeck() {
-    _cardsInDeck = NUM_CARDS_IN_DECK;
+    cardsInDeck = NUM_CARDS_IN_DECK;
     for (uint8_t diceValue{2U}; diceValue < NUM_DICE_VALUES + 2U;
          diceValue += 1U) {
         _pairCounts[diceValue - 2U] =
@@ -58,7 +58,7 @@ float BalancedDeck::calculateDiceProbability(uint8_t diceIndex) const {
         return 0.f;
     }
 
-    float probability = pairCount / _cardsInDeck;
+    float probability = pairCount / cardsInDeck;
 
     const uint8_t rollCount = _rollCounts[diceIndex];
     if (rollCount > 0U) {
