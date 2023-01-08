@@ -30,7 +30,7 @@ class BalancedDeckConan(ConanFile):
     }
 
     build_requires = (
-        "catch2/2.13.4"
+        "catch2/2.13.6"
     )
 
     def build(self):
